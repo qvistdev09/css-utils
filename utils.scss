@@ -1,0 +1,63 @@
+@mixin respond($width, $screen) {
+  @if $screen == 'x-small' {
+    @content;
+  } @else {
+    @media screen and (min-width: $width) {
+      @content;
+    }
+  }
+}
+
+@function suffix($screen) {
+  @if $screen == x-small {
+    @return '';
+  } @else {
+    @return -#{$screen};
+  }
+}
+
+$breakpoints: (
+  x-small: 575px,
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  x-large: 1200px,
+  xx-large: 1400px,
+);
+
+@each $screen, $width in $breakpoints {
+  @include respond($width, $screen) {
+    .flex-column#{suffix($screen)} {
+      display: flex;
+      flex-direction: column;
+    }
+    .flex-row#{suffix($screen)} {
+      display: flex;
+      flex-direction: row;
+    }
+    .align-center#{suffix($screen)} {
+      align-items: center;
+    }
+    .justify-center#{suffix($screen)} {
+      justify-content: center;
+    }
+    .d-none#{suffix($screen)} {
+      display: none;
+    }
+    .d-block#{suffix($screen)} {
+      display: block;
+    }
+    .d-inline#{suffix($screen)} {
+      display: inline;
+    }
+    .d-inlineblock#{suffix($screen)} {
+      display: inline-block;
+    }
+    .d-inlineflex#{suffix($screen)} {
+      display: inline-flex;
+    }
+    .vis-hidden#{suffix($screen)} {
+      visibility: hidden;
+    }
+  }
+}

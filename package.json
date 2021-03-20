@@ -1,0 +1,23 @@
+{
+  "name": "css-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass utils.scss dist/utils-built.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qvistdev09/css-utils.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qvistdev09/css-utils/issues"
+  },
+  "homepage": "https://github.com/qvistdev09/css-utils#readme",
+  "dependencies": {
+    "sass": "^1.32.8"
+  }
+}
